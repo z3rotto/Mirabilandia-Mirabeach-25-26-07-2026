@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mirabilandia + Mirabeach 2026 — Programma</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #0a0a0a;
+    color: #e8e8e8;
+    padding: 0;
+  }
+  .page {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #111;
+    overflow: hidden;
+  }
+  .cover {
+    background: linear-gradient(135deg, #1a0a0a 0%, #0d0d2b 40%, #1a0505 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 40px;
+    position: relative;
+    border-bottom: 3px solid #ff4400;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(255,68,0,0.08) 0%, transparent 70%);
+  }
+  .cover-badge {
+    font-size: 13px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: #ff4400;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  .cover h1 {
+    font-size: 58px;
+    font-weight: 900;
+    letter-spacing: -2px;
+    line-height: 1;
+    margin-bottom: 8px;
+    background: linear-gradient(135deg, #ff5e00, #ff0080);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .cover h1 span { display: block; font-size: 36px; -webkit-text-fill-color: #e8e8e8; color: #e8e8e8; background: none; font-weight: 300; letter-spacing: 2px; margin-top: 6px; }
+  .cover-date {
+    font-size: 18px;
+    color: #888;
+    margin-top: 24px;
+    font-weight: 300;
+    letter-spacing: 1px;
+  }
+  .cover-divider {
+    width: 60px;
+    height: 2px;
+    background: #ff4400;
+    margin: 24px auto;
+  }
+  .cover-info {
+    display: flex;
+    gap: 40px;
+    margin-top: 12px;
+    font-size: 14px;
+    color: #666;
+  }
+  .cover-info div { text-align: center; }
+  .cover-info strong { display: block; color: #e8e8e8; font-size: 20px; margin-bottom: 2px; }
+  .cover-footer {
+    margin-top: 50px;
+    font-size: 11px;
+    color: #444;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .section {
+    padding: 48px 40px;
+    border-bottom: 1px solid #1a1a1a;
+  }
+  .section:last-child { border-bottom: none; }
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #ff4400;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .section-title {
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    margin-bottom: 24px;
+  }
+  .section-sub {
+    font-size: 14px;
+    color: #666;
+    font-weight: 300;
+    margin-top: -16px;
+    margin-bottom: 24px;
+  }
+  .timeline { position: relative; padding-left: 32px; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background: #222;
+  }
+  .timeline-item {
+    position: relative;
+    margin-bottom: 20px;
+    padding-left: 20px;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -28px;
+    top: 6px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ff4400;
+    border: 3px solid #111;
+  }
+  .timeline-item.time-special::before { background: #ff0080; }
+  .timeline-item.time-relax::before { background: #00aaff; }
+  .timeline-item.time-show::before { background: #ffcc00; }
+  .timeline-time {
+    font-size: 12px;
+    font-weight: 700;
+    color: #ff4400;
+    letter-spacing: 1px;
+    margin-bottom: 2px;
+  }
+  .timeline-item.time-special .timeline-time { color: #ff0080; }
+  .timeline-item.time-relax .timeline-time { color: #00aaff; }
+  .timeline-item.time-show .timeline-time { color: #ffcc00; }
+  .timeline-name {
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+  .timeline-desc {
+    font-size: 13px;
+    color: #777;
+    font-weight: 300;
+    line-height: 1.4;
+  }
+  .timeline-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-top: 4px;
+  }
+  .tag-top { background: #ff440033; color: #ff4400; }
+  .tag-water { background: #00aaff33; color: #00aaff; }
+  .tag-horror { background: #440000; color: #ff4444; }
+  .tag-event { background: #ff008033; color: #ff0080; }
+  .tag-relax { background: #00774433; color: #00dd88; }
+  .tag-food { background: #66440033; color: #ddaa00; }
+  .tag-show { background: #ffcc0033; color: #ffcc00; }
+  .tag-shop { background: #aa44ff33; color: #cc88ff; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  .info-card {
+    background: #181818;
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid #222;
+  }
+  .info-card h4 {
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #ff4400;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .info-card p, .info-card li {
+    font-size: 13px;
+    color: #999;
+    font-weight: 300;
+    line-height: 1.5;
+  }
+  .info-card ul { list-style: none; padding: 0; }
+  .info-card li::before { content: '— '; color: #444; }
+  .info-card-sm {
+    background: #181818;
+    border-radius: 12px;
+    padding: 16px;
+    border: 1px solid #222;
+    text-align: center;
+  }
+  .info-card-sm .emoji { font-size: 28px; margin-bottom: 6px; }
+  .info-card-sm h5 { font-size: 13px; font-weight: 600; margin-bottom: 4px; }
+  .info-card-sm p { font-size: 11px; color: #777; font-weight: 300; }
+  .price-table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+  .price-table td {
+    padding: 8px 0;
+    font-size: 13px;
+    border-bottom: 1px solid #1a1a1a;
+    color: #999;
+    font-weight: 300;
+  }
+  .price-table td:last-child { text-align: right; font-weight: 600; color: #e8e8e8; }
+  .mirbeach-header {
+    background: linear-gradient(135deg, #002244 0%, #004466 50%, #002233 100%);
+    padding: 60px 40px;
+    text-align: center;
+    border-bottom: 3px solid #00aaff;
+  }
+  .mirbeach-header h2 {
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .mirbeach-header .badge {
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #00aaff;
+  }
+  .day-label {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 3px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+  }
+  .day-sat { background: #ff440033; color: #ff4400; }
+  .day-sun { background: #00aaff33; color: #00aaff; }
+  .tips-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 8px;
+  }
+  .tips-list li {
+    background: #181818;
+    border-radius: 8px;
+    padding: 14px;
+    font-size: 13px;
+    color: #999;
+    font-weight: 300;
+    border: 1px solid #222;
+    list-style: none;
+  }
+  .tips-list li strong { color: #e8e8e8; display: block; margin-bottom: 2px; font-size: 13px; }
+  .full-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 24px;
+    margin-top: 8px;
+  }
+  .full-list li {
+    font-size: 13px;
+    color: #999;
+    font-weight: 300;
+    padding: 4px 0;
+    list-style: none;
+    border-bottom: 1px solid #1a1a1a;
+  }
+  .full-list li .check { color: #ff4400; margin-right: 6px; }
+  /* TODO LIST */
+  .todo-section { padding: 48px 40px; border-bottom: 1px solid #1a1a1a; background: #0d0d0d; }
+  .todo-section:last-child { border-bottom: none; }
+  .todo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; }
+  .todo-item {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 14px; border-radius: 8px;
+    background: #181818; border: 1px solid #222;
+    cursor: pointer; transition: all .2s;
+    user-select: none; -webkit-user-select: none;
+  }
+  .todo-item:hover { border-color: #444; background: #1e1e1e; }
+  .todo-item.done { opacity: 0.5; border-color: #335533; background: #151f15; }
+  .todo-check {
+    width: 22px; height: 22px; border-radius: 50%;
+    border: 2px solid #555; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; transition: all .2s;
+  }
+  .todo-item.done .todo-check {
+    background: #00dd88; border-color: #00dd88;
+  }
+  .todo-text {
+    font-size: 14px; font-weight: 500; color: #ccc;
+    transition: all .2s;
+  }
+  .todo-item.done .todo-text {
+    text-decoration: line-through; color: #666;
+  }
+  .todo-header {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 16px;
+  }
+  .todo-progress {
+    font-size: 12px; color: #666; font-weight: 300;
+    background: #181818; padding: 6px 14px; border-radius: 20px;
+    border: 1px solid #222;
+  }
+  .todo-reset {
+    font-size: 11px; color: #555; background: none;
+    border: 1px solid #333; border-radius: 4px;
+    padding: 4px 12px; cursor: pointer; transition: all .2s;
+    font-family: inherit;
+  }
+  .todo-reset:hover { color: #ff4444; border-color: #ff4444; }
+  @media print { .todo-section { display: none; } }
+  @media print {
+    body { background: #fff; }
+    .page { max-width: 100%; background: #fff; }
+    .cover { background: linear-gradient(135deg, #1a0a0a 0%, #0d0d2b 40%, #1a0505 100%) !important; min-height: 90vh; }
+    .info-card, .info-card-sm { background: #f5f5f5; border-color: #ddd; }
+    .info-card p, .info-card li, .price-table td, .full-list li, .tips-list li { color: #555; }
+    .cover, .section, .mirbeach-header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .timeline-item::before { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .timeline-tag, .day-label, .tag-top, .tag-water, .tag-horror, .tag-event, .tag-relax, .tag-food, .tag-show, .tag-shop { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ═══════════════════════════════ COVER ═══════════════════════════════ -->
+<div class="cover">
+  <svg viewBox="0 0 140 80" style="width:120px;height:68px;margin-bottom:8px;">
+    <defs>
+      <clipPath id="headL"><circle cx="40" cy="24" r="14"/></clipPath>
+      <clipPath id="headR"><circle cx="100" cy="24" r="14"/></clipPath>
+    </defs>
+    <!-- ALJOSKA (left) - brown hair, red shirt -->
+    <ellipse cx="40" cy="38" rx="12" ry="16" fill="#e8c8a0"/>
+    <circle cx="40" cy="24" r="14" fill="#e8c8a0"/>
+    <path d="M26 24 Q28 8 40 8 Q52 8 54 24 Q52 16 40 14 Q28 16 26 24" fill="#5a3a1a" clip-path="url(#headL)"/>
+    <path d="M26 22 Q28 6 40 6 Q52 6 54 22" fill="#5a3a1a" clip-path="url(#headL)"/>
+    <circle cx="35" cy="22" r="2" fill="#333"/>
+    <circle cx="45" cy="22" r="2" fill="#333"/>
+    <circle cx="36" cy="21" r="0.8" fill="#fff"/>
+    <circle cx="46" cy="21" r="0.8" fill="#fff"/>
+    <path d="M36 30 Q40 33 44 30" stroke="#333" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    <rect x="28" y="35" width="24" height="24" rx="5" fill="#ff4400"/>
+    <rect x="28" y="35" width="24" height="14" rx="5" fill="#ff5e00" opacity="0.5"/>
+    <rect x="33" y="54" width="6" height="14" rx="2" fill="#cc3300"/>
+    <rect x="41" y="54" width="6" height="14" rx="2" fill="#cc3300"/>
+    <path d="M28 38 Q22 30 24 26" stroke="#e8c8a0" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M52 38 Q58 30 56 26" stroke="#e8c8a0" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <circle cx="28" cy="16" r="1.5" fill="#5a3a1a"/>
+    <circle cx="52" cy="16" r="1.5" fill="#5a3a1a"/>
+    <!-- MAURO (right) - brown hair, blue shirt -->
+    <ellipse cx="100" cy="38" rx="12" ry="16" fill="#e8c8a0"/>
+    <circle cx="100" cy="24" r="14" fill="#e8c8a0"/>
+    <path d="M86 24 Q88 6 100 8 Q112 6 114 24 Q112 14 100 12 Q88 14 86 24" fill="#4a2a10" clip-path="url(#headR)"/>
+    <path d="M86 22 Q88 4 100 6 Q112 4 114 22" fill="#4a2a10" clip-path="url(#headR)"/>
+    <circle cx="95" cy="22" r="2" fill="#333"/>
+    <circle cx="105" cy="22" r="2" fill="#333"/>
+    <circle cx="96" cy="21" r="0.8" fill="#fff"/>
+    <circle cx="106" cy="21" r="0.8" fill="#fff"/>
+    <path d="M96 30 Q100 33 104 30" stroke="#333" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    <rect x="88" y="35" width="24" height="24" rx="5" fill="#0066ff"/>
+    <rect x="88" y="35" width="24" height="14" rx="5" fill="#3388ff" opacity="0.5"/>
+    <rect x="93" y="54" width="6" height="14" rx="2" fill="#0044cc"/>
+    <rect x="101" y="54" width="6" height="14" rx="2" fill="#0044cc"/>
+    <path d="M88 38 Q82 30 84 26" stroke="#e8c8a0" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M112 38 Q118 30 116 26" stroke="#e8c8a0" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <circle cx="88" cy="16" r="1.5" fill="#4a2a10"/>
+    <circle cx="112" cy="16" r="1.5" fill="#4a2a10"/>
+    <!-- Between them: hearts -->
+    <path d="M66 22 C66 16 70 14 70 18 C70 14 74 16 74 22 L70 28 Z" fill="#ff0080" opacity="0.8"/>
+    <path d="M63 36 C63 32 66 30 66 33 C66 30 69 32 69 36 L66 40 Z" fill="#ff0080" opacity="0.5" transform="scale(0.7) translate(26,16)"/>
+    <!-- Arms holding hands -->
+    <path d="M52 40 Q60 38 66 40 Q74 38 82 40 Q86 40 88 40" stroke="#e8c8a0" stroke-width="3" fill="none" stroke-linecap="round"/>
+  </svg>
+  <div class="cover-badge">Summer 2026</div>
+  <h1>MIRABILANDIA<span>+ Mirabeach</span></h1>
+  <div class="cover-divider"></div>
+  <div class="cover-date">25–26 Luglio 2026</div>
+  <div class="cover-info">
+    <div><strong>Sab 25</strong>Mirabilandia</div>
+    <div><strong>Dom 26</strong>Mirabeach</div>
+  </div>
+  <div class="cover-footer">Birthday Party · Giorgio Vanni · DJ Set</div>
+  <div style="margin-top:30px;font-size:14px;color:#999;letter-spacing:1px;">
+    <svg viewBox="0 0 60 32" style="width:48px;height:26px;vertical-align:middle;display:inline-block;">
+      <circle cx="16" cy="11" r="6" fill="#e8c8a0"/>
+      <circle cx="44" cy="11" r="6" fill="#e8c8a0"/>
+      <path d="M10 11 Q11 3 16 3 Q21 3 22 11 Q21 7 16 6 Q11 7 10 11" fill="#5a3a1a"/>
+      <path d="M38 11 Q39 3 44 3 Q49 3 50 11 Q49 7 44 6 Q39 7 38 11" fill="#4a2a10"/>
+      <circle cx="14" cy="10" r="0.9" fill="#333"/>
+      <circle cx="18" cy="10" r="0.9" fill="#333"/>
+      <circle cx="42" cy="10" r="0.9" fill="#333"/>
+      <circle cx="46" cy="10" r="0.9" fill="#333"/>
+      <path d="M14 14 Q16 16 18 14" stroke="#333" stroke-width="1" fill="none"/>
+      <path d="M42 14 Q44 16 46 14" stroke="#333" stroke-width="1" fill="none"/>
+      <rect x="10" y="16" width="12" height="12" rx="3" fill="#ff4400"/>
+      <rect x="38" y="16" width="12" height="12" rx="3" fill="#0066ff"/>
+      <path d="M22 20 Q27 19 38 20" stroke="#ff4400" stroke-width="1" fill="none" stroke-dasharray="2,2"/>
+      <path d="M16 12 L16 8" stroke="#5a3a1a" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M44 12 L44 8" stroke="#4a2a10" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    Aljoska <span style="color:#555;">&</span> Mauro
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ BIGLIETTI ═══════════════════════════════ -->
+<div class="section">
+  <div class="section-label">Biglietti & Costi</div>
+  <div class="section-title">✅ Già tutto pronto</div>
+  <div class="grid-2">
+    <div class="info-card">
+      <h4>Biglietto 2 Parchi</h4>
+      <table class="price-table">
+        <tr><td>Online (acquistato)</td><td>39,90€</td></tr>
+        <tr><td style="color:#666;font-size:11px;">Include: Mirabilandia + Mirabeach, 2 giorni, lettini/ombrelloni</td><td></td></tr>
+      </table>
+    </div>
+    <div class="info-card">
+      <h4>Extra inclusi</h4>
+      <table class="price-table">
+        <tr><td>The Walking Dead</td><td style="color:#00dd88;">✅ incluso</td></tr>
+        <tr><td>Parcheggio auto/giorno</td><td>9,00€ (da pagare)</td></tr>
+        <tr><td>Flash Pass</td><td>— non serve</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ SABATO ═══════════════════════════════ -->
+<div class="section">
+  <div class="day-label day-sat">Sabato 25 — Mirabilandia</div>
+  <div class="section-title">🎢 Birthday Party</div>
+  <div class="section-sub">10:30 – 1:00 · Porta il pranzo da casa · Zero Flash Pass · <span style="color:#888;">Aljoska + Mauro 🎢</span></div>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-time">10:30</div>
+      <div class="timeline-name">Ingresso — Sprint in fondo al parco</div>
+      <div class="timeline-desc">Tutti si fermano alle prime giostre. Voi correte dritti in Adventureland.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-time">10:35</div>
+      <div class="timeline-name">Katun <span class="timeline-tag tag-top">TOP</span></div>
+      <div class="timeline-desc">Inverted coaster — 104 km/h, 50m, gambe nel vuoto. Coda: 0-10 min.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-time">11:00</div>
+      <div class="timeline-name">iSpeed <span class="timeline-tag tag-top">TOP</span></div>
+      <div class="timeline-desc">Launched coaster — 0-100 km/h in 2.2 sec. Accanto a Katun.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-time">11:20</div>
+      <div class="timeline-name">Divertical <span class="timeline-tag tag-top">TOP</span></div>
+      <div class="timeline-desc">Water coaster più alto del mondo — 60m, 106 km/h.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-time">11:45</div>
+      <div class="timeline-name">Master Thai</div>
+      <div class="timeline-desc">Family coaster a doppio binario — Adventureland.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-time">12:05</div>
+      <div class="timeline-name">Rio Bravo <span class="timeline-tag tag-water">ACQUA</span></div>
+      <div class="timeline-desc">Rafting su gommoni tra le rapide.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-time">12:30</div>
+      <div class="timeline-name">PRANZO AL SACCO <span class="timeline-tag tag-food">VOSTRO</span></div>
+      <div class="timeline-desc">Mentre tutti stanno in coda ai ristoranti, voi mangiate e recuperate energie.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-time">13:15</div>
+      <div class="timeline-name">Hot Wheels City — Stunt Show <span class="timeline-tag tag-show">SHOW</span></div>
+      <div class="timeline-desc">Il miglior stunt show d'Europa. Auto, moto, quad, loop da 15m. Arrivate 15 min prima. Durata ~20 min. — <strong>Stunt Arena, Route 66</strong></div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-time">14:00</div>
+      <div class="timeline-name">Far West Valley</div>
+      <div class="timeline-desc"><strong>Buffalo Bill Rodeo</strong> (disk'o coaster a cavallo) → <strong>El Dorado Falls</strong> (caduta 27m) → <strong>Gold Digger</strong> (wild mouse) → <strong>Oil Towers</strong> (free fall 60m)</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-time">15:15</div>
+      <div class="timeline-name">Reset</div>
+      <div class="timeline-desc">Dark ride interattiva — sparate ai bersagli in una New York distrutta.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-time">15:40</div>
+      <div class="timeline-name">Acquatiche <span class="timeline-tag tag-water">ACQUA</span></div>
+      <div class="timeline-desc"><strong>Blu River</strong> (canotto biposto, NON in Flash Pass) → <strong>Raratonga</strong> (cannoni ad acqua) → <strong>Autosplash</strong> (Cadillac galleggianti)</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-time">16:30</div>
+      <div class="timeline-name">Ducati World</div>
+      <div class="timeline-desc"><strong>Desmo Race</strong> (doppio spike coaster) → <strong>Motion Sphere</strong> (simulatori Ducati, a pagamento) → <strong>Eurowheel</strong> (ruota 90m, panorama incredibile)</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-time">17:15</div>
+      <div class="timeline-name">The Walking Dead <span class="timeline-tag tag-horror">HORROR</span></div>
+      <div class="timeline-desc">Walk-through horror incluso nel biglietto. 7 minuti di zombie, attori e scenografie della serie TV.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-time">17:45</div>
+      <div class="timeline-name">Dinoland <span class="timeline-tag tag-relax">VISITA</span></div>
+      <div class="timeline-desc">54 dinosauri a grandezza naturale. Scenografico, ci passate tornando verso l'ingresso. Foto col T-Rex.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-time">18:00-20:00</div>
+      <div class="timeline-name">Recupero & Shopping <span class="timeline-tag tag-shop">SHOP</span></div>
+      <div class="timeline-desc">Rifate quello che vi è piaciuto, oppure girate i negozi (Rosa dei Venti, Mayan Shop).</div>
+    </div>
+    <div class="timeline-item time-show">
+      <div class="timeline-time">— orario da app —</div>
+      <div class="timeline-name">SECONDO HOT WHEELS SHOW <span class="timeline-tag tag-show">SHOW</span></div>
+      <div class="timeline-desc">Di solito c'è una replica pomeridiana/serale. Controllate l'app.</div>
+    </div>
+    <div class="timeline-item time-special">
+      <div class="timeline-time">~21:00</div>
+      <div class="timeline-name">Concerto — Piazza della Fama <span class="timeline-tag tag-event">EVENTO</span></div>
+      <div class="timeline-desc"><strong>Giorgio Vanni + I Figli di Goku</strong> con special guest Ammiraglio Max Longhi. Le più grandi sigle dei cartoni animati.</div>
+    </div>
+    <div class="timeline-item time-special">
+      <div class="timeline-time">~22:30-1:00</div>
+      <div class="timeline-name">DJ Set <span class="timeline-tag tag-event">EVENTO</span></div>
+      <div class="timeline-desc"><strong>"Alla DiscoTEKa" di Daniel Tek</strong> — si balla fino alla chiusura.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ DOMENICA ═══════════════════════════════ -->
+<div class="mirbeach-header">
+  <div class="badge">Domenica 26</div>
+  <h2>🏖️ Mirabeach</h2>
+  <div style="font-size:16px;color:#88ccff;font-weight:300;margin-top:4px;">11:00 – 19:00</div>
+</div>
+
+<div class="section">
+  <div class="day-label day-sun">Domenica 26 — Mirabeach</div>
+  <div class="section-sub">Relax · Scivoli · Piscina a onde · Lettini e ombrelloni inclusi · <span style="color:#88ccff;">Aljoska + Mauro 🏖️</span></div>
+
+  <div class="timeline">
+    <div class="timeline-item time-relax">
+      <div class="timeline-time">11:00</div>
+      <div class="timeline-name">Ingresso — Prendete posto</div>
+      <div class="timeline-desc">Ombrellone e lettini inclusi. Lasciate le borse e cambiatevi.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-time">11:30</div>
+      <div class="timeline-name">Vuelta Vertigo <span class="timeline-tag tag-top">TOP</span></div>
+      <div class="timeline-desc">Scivolo a forma di V in canotto — il più adrenalinico di Mirabeach.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-time">12:00</div>
+      <div class="timeline-name">Rio Diablo</div>
+      <div class="timeline-desc">170m di percorso su gommone tra curve e discese.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-time">12:30</div>
+      <div class="timeline-name">Salto Tropical + Los Rápidos</div>
+      <div class="timeline-desc">Doppio scivolo tubolare + multipista con materassino (sfida chi arriva prima).</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-time">13:00</div>
+      <div class="timeline-name">PRANZO AL SACCO <span class="timeline-tag tag-food">VOSTRO</span></div>
+      <div class="timeline-desc">All'ombra sotto l'ombrellone, con calma.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-time">14:00</div>
+      <div class="timeline-name">Rumba + Salto del Caribe</div>
+      <div class="timeline-desc">Curve, discese e spruzzi.</div>
+    </div>
+    <div class="timeline-item time-relax">
+      <div class="timeline-time">14:45</div>
+      <div class="timeline-name">Rio Ángel <span class="timeline-tag tag-relax">LAZY RIVER</span></div>
+      <div class="timeline-desc">Percorso tranquillo su gommoni — il classico "lazy river" per rilassarsi dopo i scivoli.</div>
+    </div>
+    <div class="timeline-item time-relax">
+      <div class="timeline-time">15:15-17:00</div>
+      <div class="timeline-name">Baía de Ondas & Laguna del Sol <span class="timeline-tag tag-relax">RELAX</span></div>
+      <div class="timeline-desc">Piscina a onde (2.000 mq) + area relax. Prendete sole, nuotate, recuperate.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-time">17:00-19:00</div>
+      <div class="timeline-name">Ultimi giri & Doccia</div>
+      <div class="timeline-desc">Rifate gli scivoli che preferite, un ultimo bagno, poi doccia e uscita.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ SHOPPING ═══════════════════════════════ -->
+<div class="section" style="background: #0d0d1a;">
+  <div class="section-label">Shopping</div>
+  <div class="section-title">🛍️ Negozi & Souvenir</div>
+  <div class="section-sub">Cose che trovi SOLO a Mirabilandia</div>
+
+  <div class="grid-2">
+    <div class="info-card">
+      <h4>🏪 Rosa dei Venti (Baia dei Pirati)</h4>
+      <p>Il negozio più grande del parco. Qui puoi <strong>creare il tuo peluche personalizzato</strong> (lo scegli, lo riempi, lo vesti) e <strong>incidere la tua borraccia</strong> con nome/frase. Ritiro acquisti a fine giornata.</p>
+    </div>
+    <div class="info-card">
+      <h4>🏪 Mayan Shop (vicino Katun)</h4>
+      <p>Tema Maya. Gadget e souvenir + foto/video del tuo giro sul Katun.</p>
+    </div>
+    <div class="info-card">
+      <h4>🏪 Il Galeone (Baia dei Pirati)</h4>
+      <p>Abbigliamento, cappellini con ricamo personalizzato, stampa magliette.</p>
+    </div>
+    <div class="info-card">
+      <h4>🏪 Nickelodeon Shop (Nickelodeon Land)</h4>
+      <p>Gadget di SpongeBob, PAW Patrol, Tartarughe Ninja, Dora.</p>
+    </div>
+  </div>
+  <div style="margin-top:16px;">
+    <div class="info-card">
+      <h4>💡 Unici a Mirabilandia</h4>
+      <ul>
+        <li>Peluche personalizzato "Adotta il tuo cucciolo" alla Rosa dei Venti</li>
+        <li>Borraccia incisa con nome/frase</li>
+        <li>Gadget branding Mirabilandia (tazze, portachiavi, magneti col logo)</li>
+        <li>Foto on-ride delle attrazioni (Katun, iSpeed, Divertical) — acquistabili al Mayan Shop o via Fotopass</li>
+        <li>Merchandising Ducati World (Scrambler, Ducati)</li>
+        <li>Personaggi Nickelodeon (peluche SpongeBob, Paw Patrol)</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ CIBO ═══════════════════════════════ -->
+<div class="section" style="background: #0d0d0d;">
+  <div class="section-label">Cibo & Drink</div>
+  <div class="section-title">🍔 Cosa c'è di interessante</div>
+  <div class="section-sub">(Voi portate il pranzo, ma per curiosità o un drink)</div>
+
+  <div class="grid-3">
+    <div class="info-card-sm">
+      <div class="emoji">🍖</div>
+      <h5>Scrambler BBQ</h5>
+      <p>Ducati World — Burger, pulled pork, ribs. Collaborazione Scrambler Ducati.</p>
+    </div>
+    <div class="info-card-sm">
+      <div class="emoji">🍣</div>
+      <h5>Azuki Sushi</h5>
+      <p>Sushi e Poke Bowl. Insolito per un parco divertimenti!</p>
+    </div>
+    <div class="info-card-sm">
+      <div class="emoji">🍕</div>
+      <h5>New York Deli</h5>
+      <p>Il ristorante preferito delle Tartarughe Ninja! Pizza e piatti tipici.</p>
+    </div>
+    <div class="info-card-sm">
+      <div class="emoji">🍦</div>
+      <h5>Locanda del Faro</h5>
+      <p>Vista lago. Cucina italiana, 20+ gusti di gelato, proposte senza glutine.</p>
+    </div>
+    <div class="info-card-sm">
+      <div class="emoji">🥤</div>
+      <h5>Coca-Cola Freestyle</h5>
+      <p>Distributori con 100+ combinazioni di bibite. Ce ne sono vari nel parco.</p>
+    </div>
+    <div class="info-card-sm">
+      <div class="emoji">🌮</div>
+      <h5>Chioschi vari</h5>
+      <p>Piadine, crepes, gelati, popcorn, churros — sparsi per tutto il parco.</p>
+    </div>
+  </div>
+  <div class="info-card" style="margin-top:16px;text-align:center;">
+    <h4>🍺 Drink alcolici</h4>
+    <p>Disponibili in vari punti ristoro (Scrambler BBQ, Locanda del Faro, chioschi birra). Niente alcol nei menu All Inclusive.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ TODO ═══════════════════════════════ -->
+<div class="todo-section">
+  <div class="section-label">Checklist</div>
+  <div class="todo-header">
+    <div class="section-title" style="margin-bottom:0;">✅ Cosa abbiamo fatto</div>
+    <div style="display:flex;gap:10px;align-items:center;">
+      <span class="todo-progress" id="todoProgress">0/0</span>
+      <button class="todo-reset" onclick="resetTodos()">↻ Reset</button>
+    </div>
+  </div>
+
+  <div style="margin-bottom:10px;font-size:13px;color:#666;">Sabato 25 — Mirabilandia</div>
+  <div class="todo-grid" id="todoMirabilandia"></div>
+
+  <div style="margin:16px 0 10px;font-size:13px;color:#666;">Domenica 26 — Mirabeach</div>
+  <div class="todo-grid" id="todoMirabeach"></div>
+
+  <div style="margin:16px 0 10px;font-size:13px;color:#666;">Extra</div>
+  <div class="todo-grid" id="todoExtra"></div>
+</div>
+
+<script>
+const TODOS = {
+  mirabilandia: [
+    "Katun 🎢", "iSpeed 🚀", "Divertical 💦",
+    "Master Thai", "Rio Bravo 🌊",
+    "Hot Wheels Stunt Show 🏎️", "Buffalo Bill Rodeo 🤠",
+    "El Dorado Falls", "Gold Digger", "Oil Towers",
+    "Reset 🎯", "Blu River 🛶", "Raratonga ⚔️",
+    "Autosplash 🚗", "Desmo Race 🏍️", "Motion Sphere",
+    "Eurowheel 🎡", "The Walking Dead 🧟",
+    "Dinoland 🦕", "Concerto Giorgio Vanni 🎤",
+    "DJ Set 🎧",
+    "Shopping 🛍️"
+  ],
+  mirabeach: [
+    "Vuelta Vertigo ⚡", "Rio Diablo 🔥", "Salto Tropical",
+    "Los Rápidos 🏁", "Rumba 🌀", "Salto del Caribe",
+    "Rio Ángel 🛟", "Baía de Ondas 🌊", "Laguna del Sol ☀️"
+  ],
+  extra: [
+    "Parcheggio 🚗 pagato",
+    "Zaino pronto 🎒",
+    "Crema solare 🧴",
+    "Pranzo al sacco Day 1 🍱",
+    "Pranzo al sacco Day 2 🍱",
+    "Acqua/borraccia 💧",
+    "Costume + ciabatte 👙",
+    "Asciugamano 🏖️",
+    "Caricabatterie portatile 🔋"
+  ]
+};
+
+function loadTodos() {
+  const saved = localStorage.getItem('miraTodo');
+  return saved ? JSON.parse(saved) : {};
+}
+
+function saveTodos(state) {
+  localStorage.setItem('miraTodo', JSON.stringify(state));
+}
+
+function toggleTodo(key) {
+  const state = loadTodos();
+  state[key] = !state[key];
+  saveTodos(state);
+  renderTodos();
+}
+
+function resetTodos() {
+  if (confirm('Resettare tutte le caselle?')) {
+    localStorage.removeItem('miraTodo');
+    renderTodos();
+  }
+}
+
+function renderList(containerId, items, prefix) {
+  const state = loadTodos();
+  const container = document.getElementById(containerId);
+  container.innerHTML = items.map((item, i) => {
+    const key = prefix + '_' + i;
+    const done = state[key] || false;
+    return `<div class="todo-item${done ? ' done' : ''}" onclick="toggleTodo('${key}')">
+      <div class="todo-check">${done ? '✓' : ''}</div>
+      <div class="todo-text">${item}</div>
+    </div>`;
+  }).join('');
+}
+
+function updateProgress() {
+  const state = loadTodos();
+  const total = Object.keys(state).length;
+  const done = Object.values(state).filter(Boolean).length;
+  document.getElementById('todoProgress').textContent = done + '/' + total;
+}
+
+function renderTodos() {
+  renderList('todoMirabilandia', TODOS.mirabilandia, 'm');
+  renderList('todoMirabeach', TODOS.mirabeach, 'b');
+  renderList('todoExtra', TODOS.extra, 'e');
+  updateProgress();
+}
+
+document.addEventListener('DOMContentLoaded', renderTodos);
+</script>
+</div>
+
+<!-- ═══════════════════════════════ TIPS ═══════════════════════════════ -->
+<div class="section" style="border-bottom: none;">
+  <div class="section-label">Consigli</div>
+  <div class="section-title">💡 Promemoria</div>
+  <ul class="tips-list">
+    <li><strong>✅ Biglietti già pronti</strong>2 Parchi + The Walking Dead inclusi. Stampate o salvate sul telefono.</li>
+    <li><strong>📱 App Mirabilandia</strong>Scaricala — tempi d'attesa in tempo reale, mappa, orari show.</li>
+    <li><strong>🍱 Pranzo da casa</strong>Portate tutto per entrambi i giorni. Borraccia riutilizzabile (fontanelle gratis).</li>
+    <li><strong>👟 Scarpe comode</strong>Sabato camminerete tanto. Domenica ciabatte da acqua.</li>
+    <li><strong>🧴 Protezione solare</strong>Crema, cappello, occhiali. Il sole batte tutto il giorno in entrambi i parchi.</li>
+    <li><strong>🚗 Parcheggio</strong>Arrivate 30 min prima dell'apertura. Costa 9€/giorno (bancomat/cash).</li>
+    <li><strong>🎒 Zaino</strong>Capiente per il cibo di 2 giorni + costume + cambio + asciugamano.</li>
+    <li><strong>🏪 Shopping</strong>Comprate durante il pomeriggio, ritiro alla Rosa dei Venti a fine giornata.</li>
+  </ul>
+</div>
+
+<!-- FOOTER -->
+<div style="text-align:center;padding:32px;font-size:11px;color:#333;letter-spacing:2px;border-top:1px solid #1a1a1a;">
+  Buon divertimento, Aljoska & Mauro! 🎢🏖️
+</div>
+
+</div>
+</body>
+</html>
