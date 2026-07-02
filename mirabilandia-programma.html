@@ -12,6 +12,9 @@
     background: #0a0a0a;
     color: #e8e8e8;
     padding: 0;
+    overflow-x: hidden;
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
   .page {
     max-width: 800px;
@@ -294,6 +297,7 @@
     background: #181818; border: 1px solid #222;
     cursor: pointer; transition: all .2s;
     user-select: none; -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
   }
   .todo-item:hover { border-color: #444; background: #1e1e1e; }
   .todo-item.done { opacity: 0.5; border-color: #335533; background: #151f15; }
